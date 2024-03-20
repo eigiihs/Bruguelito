@@ -1,0 +1,65 @@
+header {
+    display: flex;
+    max-width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2%;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 3%;
+}
+
+nav li {
+    display: inline-flex;
+    list-style: none;
+    margin-right: 1.8rem;
+}
+
+nav li a {
+    text-decoration: none;
+    color: #000000;
+}
+
+.action-menu {
+    display: flex;
+    align-items: center;
+}
+
+.searchBar {
+    display: flex;
+    position: relative;
+}
+
+.searchInput {
+    width: 10rem;
+    height: 2rem;
+    background-color: #FFFFFF;
+    border: none;
+    border-radius: 0.8rem;
+    outline: none;
+    padding: 0 35px 0 10px
+}
+
+.search-icon {
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.options-menu {
+    margin-left: 1.5rem;
+}
+
+.options-menu a img {
+    margin-right: 1rem;
+    width: 1.2rem;
+}
