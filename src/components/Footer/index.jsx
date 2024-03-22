@@ -19,7 +19,7 @@ export function Footer() {
                 <div class="footer-information-support">
                     <h2>Suporte</h2>
 
-                    <span></span>
+                    <span className='line'></span>
 
                     <div class="support-items">
                         <ul class="support-column">
@@ -39,7 +39,7 @@ export function Footer() {
                     <div class="footer-details-media">
                         <h2>Redes Sociais</h2>
 
-                        <span></span>
+                        <span className='line'></span>
 
                         <img src={instagramIcon} alt="Nosso Instagram" />
                         <img src={facebookIcon} alt="Nosso Facebook" />

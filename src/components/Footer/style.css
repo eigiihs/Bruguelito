@@ -28,7 +28,7 @@ footer {
     margin: 10px 15px;
 }
 
-span {
+.line {
     display: block;
     background: #FFFFFF;
     max-width: 90%;

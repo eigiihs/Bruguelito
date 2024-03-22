@@ -9,8 +9,12 @@ header {
 nav {
     display: flex;
     align-items: center;
-    justify-content: center;
-    margin-left: 3%;
+    justify-content: start;
+    width: 334px;
+}
+
+nav ul {
+    margin-left: 40px;
 }
 
 nav li {
@@ -22,6 +26,15 @@ nav li {
 nav li a {
     text-decoration: none;
     color: #000000;
+}
+
+.bruguelitoName-logo {
+    display: flex;
+    justify-content: center;
+}
+
+.bruguelitoName-logo img {
+    width: 90%;
 }
 
 .action-menu {
@@ -49,7 +62,7 @@ nav li a {
     position: absolute;
     right: 10px;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(-40%);
     display: flex;
     justify-content: center;
     align-items: center;

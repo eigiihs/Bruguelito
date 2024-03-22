@@ -1,4 +1,4 @@
-main {
+.main-form {
     width: 100%;
     margin-top: 25px;
 }
@@ -28,6 +28,11 @@ main {
     padding: 0.3vw;
 }
 
+/* Tratando do Link */
+.title a {
+    color: #000000;
+}
+
 span {
     width: 100%; 
     height: 0.2vh;
@@ -50,7 +55,8 @@ form {
     margin: 3vh;
 }
 
-input {
+input,
+select {
     margin-top: 0.8vh;
     outline: none;
     border: 1px solid #000000;
@@ -60,16 +66,16 @@ input {
     padding: 5px;
 }
 
-button {
+.btn-lc {
     width: 80%;
     height: 7vh;
-    background: #0D0D0D;
+    background: #000000;
     color: #FFFFFF;
     border-radius: 5px;
     padding: 5px;
     margin-top: 7vh;
 }
 
-button:hover {
-    background: #404040;
+.btn-lc:hover {
+    background: #24232b;
 }

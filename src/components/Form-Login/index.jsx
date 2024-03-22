@@ -1,9 +1,10 @@
+import { Link } from 'react-router-dom';
 import './style.css';
 
 export function FormLogin() {
     return (
         <>
-            <main>
+            <main className='main-form'>
                 <section className="container">
                     <div className="navBar">
                         <div className="title">
@@ -11,7 +12,7 @@ export function FormLogin() {
                             <span></span>
                         </div>
                         <div className="title">
-                            <h2>Cadastre-se</h2>
+                            <h2><Link to='/cadastro'>Cadastre-se</Link></h2>
                         </div>
                     </div>
                     <form action="">
@@ -33,7 +34,7 @@ export function FormLogin() {
                             placeholder='Digite seu e-mail'
                             />
                         </div>
-                        <button type='submit'>Login</button>
+                        <button className='btn-lc' type='submit'>Login</button>
                     </form>
                 </section>
             </main>

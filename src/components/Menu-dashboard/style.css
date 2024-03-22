@@ -1,0 +1,71 @@
+.menu-lateral {
+    width: 22%;
+    height: 100%;
+    background: #262626;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.menu-lateral .header {
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+    margin-top: 20px;
+}
+
+.header img {
+    width: 20%;
+}
+
+.menu-navBar {
+    max-width: 100%;
+    padding: 12px;
+}
+
+.option {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin: 10vh 0vh;
+}
+
+.option .icon {
+    width: 30%;
+    display: flex;
+    justify-content: center;
+}
+
+.icon img {
+    width: 30%;
+}
+
+.option li {
+    color: #F2F2F2;
+    font-size: 1.5vw;
+    list-style-type: none;
+}
+
+.logout {
+    max-width: 100%;
+    display: flex;
+    padding: 12px;
+    align-items: flex-end;
+    margin-bottom: 4vh;
+}
+
+.logout .icon {
+    width: 30%;
+    display: flex;
+    justify-content: center;
+}
+
+.logout .icon img {
+    width: 24%;
+}
+
+.logout a {
+    font-size: 1.3vw;
+    color: #F2F2F2;
+}
