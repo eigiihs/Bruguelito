@@ -1,16 +1,27 @@
+import { useState } from "react";
 import { MenuDashboard } from "../components/Menu-dashboard";
+import { TitleDash } from "../components/Title-Dash";
 import '../styles/dashboard.css'
 
 export function Dashboard() {
+
+    const initilForm = {
+        nome: "",
+        preco: "",
+        tamanhos: [],
+        imagemModelo: "",
+        imgProd: []
+    }
+
+    const [form, setForm] = useState(initilForm)
+
     return (
         <>
             <main className="main-dashboard">
                 <MenuDashboard />
 
                 <div className="content">
-                    <div className="title-dash">
-                        <h1>Cadastrar Produto</h1>
-                    </div>
+                    <TitleDash title='Cadastrar Produto' />
                     <form action="">
                         <div className="form-control double">
                             <div className="only big">
@@ -30,19 +41,21 @@ export function Dashboard() {
                                 />
                             </div>
                         </div>
-                        <div className="form-control">
-                            <label htmlFor="tamanho">Tamanho</label>
-                            <select className="small" name="" id="">
-                                <option value=""></option>
-                                <option value="unico">UNICO</option>
-                                <option value="pp">PP</option>
-                                <option value="p">P</option>
-                                <option value="m">M</option>
-                                <option value="g">G</option>
-                                <option value="gg">GG</option>
-                            </select>
+                        <div className="form-control double-add">
+                            <div className="taman-component">
+                                <label htmlFor="tamanho">Tamanho</label>
+                                <input type="text" list="tamanhos" />
+                                <datalist id="tamanhos">
+                                    <option value="UNICO"></option>
+                                    <option value="PP"></option>
+                                    <option value="P"></option>
+                                    <option value="M"></option>
+                                    <option value="G"></option>
+                                    <option value="GG"></option>
+                                </datalist>
+                            </div>
 
-                            <button className="btn-add">+</button>
+                            <button className="btn-add" id="btn-add">+</button>
                         </div>
                         <div className="form-control">
                             <label htmlFor="nome">Imagem Modelo</label>
@@ -52,25 +65,26 @@ export function Dashboard() {
                                 name='img-model'
                             />
                         </div>
-                        <div className="form-control double">
-                            <div className="only">
-                                <label htmlFor="nome">Img Prod-1</label>
+                        <div className="form-control double-add">
+                            <div className="only first">
+                                <label htmlFor="nome">Img Prod</label>
                                 <input
                                     type='text'
-                                    id='img-model'
-                                    name='img-model'
+                                    id='img-prod'
+                                    name='img-prod'
                                 />
                             </div>
                             <div className="only">
-                                <label htmlFor="preco">Img Prod-2</label>
+                                <label htmlFor="preco">Img Prod</label>
                                 <input
                                     type='text'
-                                    id='preco'
-                                    name='preco'
+                                    id='img-prod'
+                                    name='img-prod'
                                 />
                             </div>
-
+                            <button className="btn-add">+</button>
                         </div>
+                        <button className="btn-main" type="submit">Cadastrar</button>
                     </form>
                 </div>
             </main>

@@ -54,7 +54,7 @@ export function FormCadastro() {
                                 name='dataNascimento'
                             />
                         </div>
-                        <button className='btn-lc' type='submit'>Cadastrar</button>
+                        <button className='btn-main' type='submit'>Cadastrar</button>
                     </form>
                 </section>
             </main>

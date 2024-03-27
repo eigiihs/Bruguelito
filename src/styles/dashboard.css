@@ -6,11 +6,7 @@
 
 .content {
     width: 100%;
-}
-
-.title-dash {
-    font-size: 1.2vw;
-    padding: 1.2vw;
+    margin: 0 auto;
 }
 
 .big {
@@ -21,12 +17,79 @@
     width: 25% !important; 
 }
 
+.double-add {
+    display: flex;
+    flex-direction: row; 
+    align-items: flex-end;
+}
+
+.taman-component {
+    display: flex;
+    flex-direction: column;
+}
+
 .btn-add {
     margin-top: 0.8vh;
     outline: none;
     border: 1px solid #000000;
     background-color: #F2F2F2;
-    height: 5vh;
+    height: 6.6vh;
+    width: 3vw;
     border-radius: 5px;
-    padding: 5px;
+    padding: 6px;
+    margin-left: 1.8vw;
+}
+
+.first {
+    margin-right: 2vw;
+}
+
+table {
+    border-collapse: collapse;
+    width: 95%;
+    margin: 0 auto;
+}
+  
+th, td {
+    text-align: left;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    border-bottom: 1.5px solid #000000;
+}
+
+td {
+    border-bottom: 1.5px solid #dddddd;
+}
+
+.icon {
+    width: 1.5vw;
+}
+
+.btn-del,
+.btn-edit {
+    width: 5vw;
+    padding: 0.7vw;
+    border: none;
+    border-radius: 4px;
+}
+
+.btn-del {
+    background: rgb(235, 43, 43);
+    color: #F2F2F2;
+}
+
+.btn-del:hover {
+    background-color: rgb(179, 35, 35);
+}
+
+.btn-edit {
+    background: rgb(235, 200, 43);
+    color: #F2F2F2;
+}
+
+.btn-edit:hover {
+    background: rgb(199, 169, 33);
 }

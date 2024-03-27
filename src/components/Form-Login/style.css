@@ -55,18 +55,17 @@ form {
     margin: 3vh;
 }
 
-input,
-select {
+input {
     margin-top: 0.8vh;
     outline: none;
     border: 1px solid #000000;
-    background-color: #F2F2F2;
+    background: #F2F2F2;
     height: 5vh;
     border-radius: 5px;
     padding: 5px;
 }
 
-.btn-lc {
+.btn-main {
     width: 80%;
     height: 7vh;
     background: #000000;
@@ -76,6 +75,6 @@ select {
     margin-top: 7vh;
 }
 
-.btn-lc:hover {
+.btn-main:hover {
     background: #24232b;
 }

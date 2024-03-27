@@ -4,6 +4,8 @@ import { Product } from './pages/Product';
 import { Login } from './pages/Login';
 import { Cadastro } from './pages/Cadastro';
 import { Dashboard } from './pages/Dashboard';
+import { DashboardListUser } from './pages/DashboardListUser';
+import { DashboardListProduct } from './pages/DashboardListProduct';
 
 const Router = () => {
     return (
@@ -14,6 +16,8 @@ const Router = () => {
                 <Route path='/login' element={<Login/>} />
                 <Route path='/cadastro' element={<Cadastro/>} />
                 <Route path='/dashboard' element={<Dashboard/>} />
+                <Route path='/dashboard/listuser' element={<DashboardListUser />} />
+                <Route path='/dashboard/listproduct' element={<DashboardListProduct />} />
             </Routes>
         </BrowserRouter>
     )

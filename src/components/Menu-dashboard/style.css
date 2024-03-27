@@ -1,5 +1,5 @@
 .menu-lateral {
-    width: 22%;
+    width: 24%;
     height: 100%;
     background: #262626;
     display: flex;
@@ -43,7 +43,7 @@
 
 .option li {
     color: #F2F2F2;
-    font-size: 1.5vw;
+    font-size: 1.3vw;
     list-style-type: none;
 }
 
@@ -67,5 +67,9 @@
 
 .logout a {
     font-size: 1.3vw;
+    color: #F2F2F2;
+}
+
+.option a {
     color: #F2F2F2;
 }

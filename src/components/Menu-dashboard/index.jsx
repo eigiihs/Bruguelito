@@ -18,21 +18,21 @@ export function MenuDashboard () {
                         <ul>
                             <div className='option'>
                                 <div className="icon"><img src={addProdIcon} alt="" /></div>
-                                <li>Cadastrar Produto</li>
+                                <li><Link to='/dashboard'>Cadastrar Produto</Link></li>
                             </div>
                             <div className='option'>
                                 <div className="icon"><img src={listProdIcon} alt="" /></div>                            
-                                <li>Listar Produtos</li>
+                                <li><Link to='/dashboard/listproduct'>Listar Produtos</Link></li>
                             </div>
                             <div className='option'>
                                 <div className="icon"><img src={listUsersIcon} alt="" /></div>                              
-                                <li>Listar Usuários</li>
+                                <li><Link to='/dashboard/listuser'>Listar Usuários</Link></li>
                             </div>
                         </ul>
                     </div>
                     <div className="logout">
                         <div className="icon"><img src={logoutIcon} alt="" /></div>
-                        <Link>Sair</Link>
+                        <Link to='/'>Sair</Link>
                     </div>
                 </div>
         </>

@@ -34,7 +34,7 @@ export function FormLogin() {
                             placeholder='Digite seu e-mail'
                             />
                         </div>
-                        <button className='btn-lc' type='submit'>Login</button>
+                        <button className='btn-main' type='submit'>Login</button>
                     </form>
                 </section>
             </main>
