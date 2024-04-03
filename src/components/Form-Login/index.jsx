@@ -28,7 +28,7 @@ export function FormLogin() {
         console.log(userExist)
 
         if (userExist) {
-            if (userExist.email === "adminadmin@gmail.com" && userExist.senha === "admin") {
+            if (userExist.email === "adminadmin@gmail.com" && userExist.senha === "admin@") {
                 navigate('/dashboard')
             }else {
                 navigate('/')

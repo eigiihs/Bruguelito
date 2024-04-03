@@ -3,7 +3,7 @@
     {
       "id": "0df9",
       "email": "adminadmin@gmail.com",
-      "senha": "admin",
+      "senha": "admin@",
       "dataNasci": ""
     },
     {
@@ -32,6 +32,40 @@
         "https://www.universalstore.com/cdn/shop/files/173874_002_375x_crop_center.jpg?v=1699033792",
         "https://www.universalstore.com/cdn/shop/files/173874_003_375x_crop_center.jpg?v=1699033792",
         "https://www.universalstore.com/cdn/shop/files/173874_004_375x_crop_center.jpg?v=1699033793"
+      ]
+    },
+    {
+      "id": "6286",
+      "nome": "Moon Grafic T-shirt ",
+      "preco": "175.90",
+      "tamanhos": [
+        "P",
+        "M",
+        "G",
+        "GG"
+      ],
+      "imgModelo": "https://img.ltwebstatic.com/images3_spmp/2024/01/04/ea/1704312335951412da7ac7e6686fb369a52ac02155.webp",
+      "imgsProd": [
+        "https://img.ltwebstatic.com/images3_spmp/2024/01/04/14/1704312328520c35018b361514d7145c223a9d4873.webp",
+        "https://img.ltwebstatic.com/images3_spmp/2024/01/04/7a/1704312330320799354aeb0da80a757dd362d05e97.webp",
+        "https://img.ltwebstatic.com/images3_spmp/2024/01/04/23/170431233321d6fa8385a26955612129c17c5fb95c.webp"
+      ]
+    },
+    {
+      "id": "2f99",
+      "nome": "Adidas Originals Green Laced",
+      "preco": "499.99",
+      "tamanhos": [
+        "P",
+        "M",
+        "G",
+        "GG"
+      ],
+      "imgModelo": "https://i.pinimg.com/736x/b6/91/0d/b6910d3f7f3544821003b20d05fc6f40.jpg",
+      "imgsProd": [
+        "https://i.pinimg.com/736x/08/38/8b/08388b815ebd49d63e4ba5405c141f32.jpg",
+        "https://i.pinimg.com/736x/d3/ff/de/d3ffde1e714c97ca98b8a5c50a373730.jpg",
+        "https://i.pinimg.com/736x/9a/c9/85/9ac9856e27bc1af32fe2c875703f6340.jpg"
       ]
     }
   ]

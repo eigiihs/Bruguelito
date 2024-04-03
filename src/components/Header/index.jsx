@@ -8,13 +8,21 @@ import { Footer } from '../Footer';
 import { Link } from 'react-router-dom';
 
 export function Header() {
+
+    function scrollFooter() {
+        window.scrollTo({
+            top: 1000,
+            behavior: 'smooth'
+        })
+    }
+
     return(
         <header>
         <nav>
             <ul>
-                <li><Link to="/">Home</Link></li>
-                <li><a href="">Shop</a></li>
-                <li><a href="">Suporte</a></li>
+                <li id='home'><Link to="/">Home</Link></li>
+                <li><Link>Shop</Link></li>
+                <li id='support'><Link onClick={scrollFooter}>Suporte</Link></li>
             </ul>
         </nav>
 
@@ -27,14 +35,14 @@ export function Header() {
                 <input type="text" placeholder="Buscar" className="searchInput" />
 
                 <div className="search-icon">
-                    <a href=""><img src={searchIcon} alt="" /></a>
+                    <Link><img src={searchIcon} alt="" /></Link>
                 </div>
             </div>
 
             <div className="options-menu">
-                <a href=""><img src={wichlistIcon} alt="" /></a>
-                <a href=""><img src={cartIcon} alt="" /></a>
-                <Link to="/login"><img src={userIcon} alt="" /></Link>
+                <Link><img src={wichlistIcon} alt="" /></Link>
+                <Link><img src={cartIcon} alt="" /></Link>  
+                <Link to="/login"><img src={userIcon} alt="" id='icon-user'/></Link>
             </div>
         </div>
     </header>
