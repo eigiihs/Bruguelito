@@ -1,8 +1,38 @@
 {
-    "users": [
-
-    ],
-    "products": [
-        
-    ]
+  "users": [
+    {
+      "id": "0df9",
+      "email": "adminadmin@gmail.com",
+      "senha": "admin",
+      "dataNasci": ""
+    },
+    {
+      "id": "285d",
+      "email": "giihsousa19@outlook.com",
+      "senha": "gigi@sou19",
+      "dataNasci": "2006-07-19"
+    },
+    {
+      "id": "ecb5",
+      "email": "murilocalabianqui@gmail.com",
+      "senha": "murilo@cala123",
+      "dataNasci": "2003-08-09"
+    }
+  ],
+  "products": [
+    {
+      "id": "8ea3",
+      "nome": "NY Unisex Green Hat",
+      "preco": "139.99",
+      "tamanhos": [
+        "UNICO"
+      ],
+      "imgModelo": "https://i.pinimg.com/564x/0c/9b/eb/0c9beb36a0807c5d637f33651e176424.jpg",
+      "imgsProd": [
+        "https://www.universalstore.com/cdn/shop/files/173874_002_375x_crop_center.jpg?v=1699033792",
+        "https://www.universalstore.com/cdn/shop/files/173874_003_375x_crop_center.jpg?v=1699033792",
+        "https://www.universalstore.com/cdn/shop/files/173874_004_375x_crop_center.jpg?v=1699033793"
+      ]
+    }
+  ]
 }

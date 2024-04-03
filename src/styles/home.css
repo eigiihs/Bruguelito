@@ -1,0 +1,10 @@
+.banner {
+    margin: 0 auto;
+    padding: 1vw;
+    max-width: 100%;
+}
+
+.banner img {
+    max-width: 100%;
+}
+

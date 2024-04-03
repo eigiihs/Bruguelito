@@ -1,8 +1,69 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import './style.css'
 import '../Form-Login/style.css'
+import { useState } from 'react'
 
 export function FormCadastro() {
+
+    const navigate = useNavigate();
+
+    const initilForm = {
+        email: "",
+        senha: "",
+        confirmSenha: "",
+        dataNasci: ""
+    }
+
+    const [formState, setFormState] = useState(initilForm);
+
+    const handleInput = (event) =>  {
+
+        const target = event.currentTarget;
+        
+        const {name, value} = target;
+
+        setFormState({...formState, [name]: value})
+    }
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+
+        if (formState.confirmSenha != formState.senha) {
+            console.error("Senhas diferentes!")
+            alert("As senhas não são iguais. Digite novamente!")
+            return;
+        }
+
+        const formGeneral = {
+            email: formState.email,
+            senha: formState.senha,
+            dataNasci: formState.dataNasci
+        }
+
+        const requestOptions = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formGeneral)
+        }
+
+        fetch('http://localhost:3001/users', requestOptions)
+            .then(response => response.json())
+            .then((data) => {
+                setFormState(data)
+                alert("Cadastrado com sucesso!!")
+                navigate('/')
+            })
+            .catch(error => {
+                console.error('Erro ao enviar o formulário:', error);
+                alert("Erro ao enviar o formulário. Tente novamente mais tarde.");
+            });
+        setFormState({...initilForm})
+
+        
+    }
+
     return (
         <>
             <main className='main-form'>
@@ -16,13 +77,15 @@ export function FormCadastro() {
                             <span></span>
                         </div>
                     </div>
-                    <form action="">
+                    <form action="" onSubmit={handleSubmit}>
                         <div className="form-control">
                             <label htmlFor="email">E-mail</label>
                             <input
-                                type='text'
+                                type='email'
                                 id='email'
-                                name='senha'
+                                name='email'
+                                value={formState.email}
+                                onChange={handleInput}
                                 placeholder='Digite seu e-mail'
                             />
                         </div>
@@ -30,28 +93,34 @@ export function FormCadastro() {
                             <div className="only">
                                 <label htmlFor="senha">Senha</label>
                                 <input
-                                    type='text'
+                                    type='password'
                                     id='senha'
                                     name='senha'
-                                    placeholder='Digite seu e-mail'
+                                    value={formState.senha}
+                                    onChange={handleInput}
+                                    placeholder='Digite sua senha'
                                 />
                             </div>
                             <div className="only">
                                 <label htmlFor="senha">Confirmar Senha</label>
                                 <input
-                                    type='text'
-                                    id='senha'
-                                    name='senha'
-                                    placeholder='Digite seu e-mail'
+                                    type='password'
+                                    id='confirmSenha'
+                                    name='confirmSenha'
+                                    value={formState.confirmSenha}
+                                    onChange={handleInput}
+                                    placeholder='Confirme sua senha'
                                 />
                             </div>
                         </div>
                         <div className="form-control">
-                            <label htmlFor="dataNascimento">Data de Nascimento</label>
+                            <label htmlFor="dataNasci">Data de Nascimento</label>
                             <input
                                 type='date'
-                                id='dataNascimento'
-                                name='dataNascimento'
+                                id='dataNasci'
+                                name='dataNasci'
+                                value={formState.dataNasci}
+                                onChange={handleInput}
                             />
                         </div>
                         <button className='btn-main' type='submit'>Cadastrar</button>

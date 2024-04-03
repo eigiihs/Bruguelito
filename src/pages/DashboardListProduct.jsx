@@ -1,10 +1,15 @@
-import '../styles/dashboard.css'
-import { MenuDashboard } from '../components/Menu-dashboard'
-import { TitleDash } from '../components/Title-Dash'
-import deleteIcon from  '../assets/img/delete-icon.svg'
-import editIcon from '../assets/img/edit-icon.svg'
+import '../styles/dashboard.css';
+import { MenuDashboard } from '../components/Menu-dashboard';
+import { TitleDash } from '../components/Title-Dash';
+import deleteIcon from '../assets/img/delete-icon.svg';
+import { products } from '../../db.json';
 
-export function DashboardListProduct () {
+export function DashboardListProduct() {
+
+    console.log(products.map((item, index) => {
+        item.id, item.nome, item.preco
+    }))
+
     return (
         <>
             <main className="main-dashboard">
@@ -13,22 +18,28 @@ export function DashboardListProduct () {
                 <div className="content">
                     <TitleDash title='Listar Produtos' />
                     <table>
-                    <tr>
-                            <th>ID</th>
-                            <th>Nome</th>
-                            <th>Preço</th>
-                            <th>Tamanhos</th>
-                            <th><img className='icon' src={deleteIcon} alt="" /></th>
-                            <th><img className='icon' src={editIcon} alt="" /></th>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>NY Female Green Hat</td>
-                            <td>129,99</td>
-                            <td>Único</td>
-                            <td><button className='btn-del'>Deletar</button></td>
-                            <td><button className='btn-edit'>Editar</button></td>
-                        </tr>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nome</th>
+                                <th>Preço</th>
+                                <th>Tamanhos</th>
+                                <th><img className='icon' src={deleteIcon} alt="" /></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {products.map((product, index) => {
+                                return (
+                                    <tr key={index}>
+                                        <td>{product.id}</td>
+                                        <td>{product.nome}</td>
+                                        <td>{product.preco}</td>
+                                        <td>{product.tamanhos}</td>
+                                        <td><button className='btn-del'>Deletar</button></td>
+                                    </tr>
+                                )
+                            })}
+                        </tbody>
                     </table>
                 </div>
             </main>

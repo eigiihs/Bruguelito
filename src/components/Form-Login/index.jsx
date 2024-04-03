@@ -1,7 +1,44 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import './style.css';
 
 export function FormLogin() {
+
+    const navigate = useNavigate();
+
+    const [email, setEmail] = useState();
+    const [senha, setSenha] = useState();
+    const [users, setUsers] = useState([]);
+
+    // Carrega os dados dos usuários do arquivo JSON ao montar o componente
+    useEffect(() => {
+        fetch('http://localhost:3001/users')
+        .then(response => response.json())
+        .then(data => setUsers(data))
+        .catch(error => console.error('Erro ao carregar dados dos usuários: ', error))
+    }, [])
+
+    const handleLogin = (event) => {
+        event.preventDefault();
+
+        console.log(users)
+
+        const userExist = users.find(user => user.email === email && user.senha === senha)
+
+        console.log(userExist)
+
+        if (userExist) {
+            if (userExist.email === "adminadmin@gmail.com" && userExist.senha === "admin") {
+                navigate('/dashboard')
+            }else {
+                navigate('/')
+            }
+        }else {
+            alert("Algo está errado!! Usuário não encontrado")
+            navigate('/login')
+        }
+    }
+
     return (
         <>
             <main className='main-form'>
@@ -15,23 +52,27 @@ export function FormLogin() {
                             <h2><Link to='/cadastro'>Cadastre-se</Link></h2>
                         </div>
                     </div>
-                    <form action="">
+                    <form action="" onSubmit={handleLogin}>
                         <div className="form-control">
                             <label htmlFor="email">E-mail</label>
-                            <input 
-                            type='text'
-                            id='email'
-                            name='senha'
-                            placeholder='Digite seu e-mail'
+                            <input
+                                type='email'
+                                id='email'
+                                name='email'
+                                value={email}
+                                onChange={(event) => setEmail(event.target.value)}
+                                placeholder='Digite seu e-mail'
                             />
                         </div>
                         <div className="form-control">
                             <label htmlFor="senha">Senha</label>
-                            <input 
-                            type='text'
-                            id='senha'
-                            name='senha'           
-                            placeholder='Digite seu e-mail'
+                            <input
+                                type='password'
+                                id='senha'
+                                name='senha'
+                                value={senha}
+                                onChange={(event) => setSenha(event.target.value)}
+                                placeholder='Digite sua senha'
                             />
                         </div>
                         <button className='btn-main' type='submit'>Login</button>
