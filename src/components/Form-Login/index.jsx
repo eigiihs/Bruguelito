@@ -9,6 +9,7 @@ export function FormLogin() {
     const [email, setEmail] = useState();
     const [senha, setSenha] = useState();
     const [users, setUsers] = useState([]);
+    const [errorMessage, setErrorMessage] = useState("");
 
     // Carrega os dados dos usuários do arquivo JSON ao montar o componente
     useEffect(() => {
@@ -23,19 +24,22 @@ export function FormLogin() {
 
         console.log(users)
 
-        const userExist = users.find(user => user.email === email && user.senha === senha)
-
-        console.log(userExist)
+        const userExist = users.find(user => user.email === email )
 
         if (userExist) {
-            if (userExist.email === "adminadmin@gmail.com" && userExist.senha === "admin@") {
-                navigate('/dashboard')
+            //Verifica se a senha está incorreta
+            if (userExist.senha === senha) {
+                if (userExist.email === "adminadmin@gmail.com" && userExist.senha === "admin@") {
+                    navigate('/dashboard')
+                }else {
+                    navigate('/')
+                }
             }else {
-                navigate('/')
+                setErrorMessage("Senha incorreta. Tente novamente!!")
             }
         }else {
-            alert("Algo está errado!! Usuário não encontrado")
-            navigate('/login')
+            alert("Email não encontrado. Cadastre-se antes de fazer login!")
+            navigate('/cadastro')
         }
     }
 
@@ -75,6 +79,7 @@ export function FormLogin() {
                                 placeholder='Digite sua senha'
                             />
                         </div>
+                        <div>{errorMessage}</div>
                         <button className='btn-main' type='submit'>Login</button>
                     </form>
                 </section>

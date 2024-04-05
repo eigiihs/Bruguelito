@@ -101,16 +101,18 @@ export function Dashboard() {
                                     name='nome'
                                     value={form.nome}
                                     onChange={(event) => setForm({ ...form, nome: event.target.value })}
+                                    required
                                 />
                             </div>
                             <div className="only small">
                                 <label htmlFor="preco">Preço</label>
                                 <input
-                                    type='text'
+                                    type='price'
                                     id='preco'
                                     name='preco'
                                     value={form.preco}
                                     onChange={(event) => setForm({ ...form, preco: event.target.value })}
+                                    required
                                 />
                             </div>
                         </div>
@@ -125,7 +127,9 @@ export function Dashboard() {
                                     name='tamanho'
                                     value={form.tamanhos[0]}
                                     list={`tamanhos-0`}
-                                    onChange={(event) => handleTamanhoChange(0, event)} />
+                                    onChange={(event) => handleTamanhoChange(0, event)}
+                                    required
+                                />
                                 <datalist id={`tamanhos-0`}>
                                     <option value="UNICO"></option>
                                     <option value="PP"></option>
@@ -151,7 +155,8 @@ export function Dashboard() {
                                         name='tamanho'
                                         value={tamanho}
                                         list={`tamanhos-${index + 1}`}
-                                        onChange={(event) => handleTamanhoChange(index + 1, event)} />
+                                        onChange={(event) => handleTamanhoChange(index + 1, event)}
+                                    />
                                     <datalist id={`tamanhos-${index + 1}`}>
                                         <option value="UNICO"></option>
                                         <option value="PP"></option>
@@ -167,11 +172,12 @@ export function Dashboard() {
                         <div className="form-control">
                             <label htmlFor="imgModelo">Imagem Modelo</label>
                             <input
-                                type='text'
+                                type='url'
                                 id='imgModelo'
                                 name='imgModelo'
                                 value={form.imgModelo}
                                 onChange={(event) => setForm({ ...form, imgModelo: event.target.value })}
+                                required
                             />
                         </div>
 
@@ -180,21 +186,23 @@ export function Dashboard() {
                             <div className="only first">
                                 <label htmlFor={`imgProd-0`}>Img Prod</label>
                                 <input
-                                    type='text'
+                                    type='url'
                                     id={`imgProd-0`}
                                     name='imgProd'
                                     value={form.imgsProd[0]}
                                     onChange={(event) => handleImgsChange(0, event)}
+                                    required
                                 />
                             </div>
                             <div className="only">
                                 <label htmlFor={`imgProd-1`}>Img Prod</label>
                                 <input
-                                    type='text'
+                                    type='url'
                                     id={`imgProd-1`}
                                     name='imgProd'
                                     value={form.imgsProd[1]}
                                     onChange={(event) => handleImgsChange(1, event)}
+                                    required
                                 />
                             </div>
                             {/* Botão para adicionar mais campos de imgProd */}
@@ -207,7 +215,7 @@ export function Dashboard() {
                                 <div className="only first">
                                     <label htmlFor={`imgProd-${index + 2}`}>Img Prod</label>
                                     <input
-                                        type='text'
+                                        type='url'
                                         id={`imgProd-${index + 2}`}
                                         name='imgProd'
                                         value={imgProd}
