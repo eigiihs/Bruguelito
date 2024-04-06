@@ -32,6 +32,7 @@ export function FormLogin() {
                 if (userExist.email === "adminadmin@gmail.com" && userExist.senha === "admin@") {
                     navigate('/dashboard')
                 }else {
+                    alert("Login realizado com sucesso. Aproveite!!")
                     navigate('/')
                 }
             }else {

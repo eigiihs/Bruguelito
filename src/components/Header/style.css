@@ -65,7 +65,7 @@ nav li a {
 }
 
 .search-icon {
-    cursor: none;
+    pointer-events: none;
     position: absolute;
     right: 10px;
     top: 50%;
