@@ -35,6 +35,12 @@
       "email": "mathduda@outlook.com.br",
       "senha": "dud@1000",
       "dataNasci": "2007-05-23"
+    },
+    {
+      "id": "55e4",
+      "email": "luluisa@gmail.com",
+      "senha": "lulu123@",
+      "dataNasci": "1998-03-07"
     }
   ],
   "products": [

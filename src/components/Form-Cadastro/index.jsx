@@ -67,7 +67,7 @@ export function FormCadastro() {
             }
             alert("Cadastrado com sucesso!!");
             setFormState(initialForm);
-            navigate('/'); // Redireciona para a página inicial após o cadastro bem-sucedido
+            navigate('/login'); // Redireciona para a página inicial após o cadastro bem-sucedido
         } catch (error) {
             console.error('Erro ao enviar o formulário:', error);
             setErrorMessage("Erro ao enviar o formulário. Tente novamente mais tarde.");

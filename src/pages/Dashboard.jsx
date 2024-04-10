@@ -6,6 +6,9 @@ import '../styles/dashboard.css'; // Importa o arquivo de estilo CSS específico
 
 // Componente para a página do painel de controle (dashboard)
 export function Dashboard() {
+
+    const [message, setMessage] = useState("");
+
     // Estado inicial do formulário para cadastrar produtos
     const initilForm = {
         nome: "", // Nome do produto
@@ -75,14 +78,14 @@ export function Dashboard() {
 
         fetch('http://localhost:3001/products', requestOptions) // Envia a requisição POST para cadastrar o produto
             .then(response => response.json()) // Converte a resposta em formato JSON
-            .then((data) => setForm(data)) // Atualiza o estado do formulário com os dados do produto cadastrado
+            .then((data) => {
+                setForm(initilForm) //Limpa o formulário após o cadastro
+                setMessage("Cadastrado com sucesso!!") // Define a mensagem de sucesso
+            })
             .catch(error => {
                 console.error('Erro ao enviar o formulário:', error); // Trata erros de envio do formulário
                 alert("Erro ao enviar o formulário. Tente novamente mais tarde."); // Exibe uma mensagem de erro
             });
-        
-        // Limpa os campos do formulário após o envio bem-sucedido
-        setForm({...initilForm })
 
         console.log(form); // Exibe o formulário no console (para fins de depuração)
     };
@@ -228,7 +231,7 @@ export function Dashboard() {
                                 </div>
                             </div>
                         ))}
-
+                        <div>{message}</div>
                         <button className="btn-main" type="submit" >Cadastrar</button> {/* Botão para enviar o formulário */}
                     </form>
                 </div>
