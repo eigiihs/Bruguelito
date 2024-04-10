@@ -1,31 +1,33 @@
+// Importações necessárias
 import { useState } from "react";
-import { MenuDashboard } from "../components/Menu-dashboard";
-import { TitleDash } from "../components/Title-Dash";
-import '../styles/dashboard.css';
+import { MenuDashboard } from "../components/Menu-dashboard"; // Importa o componente do menu do painel
+import { TitleDash } from "../components/Title-Dash"; // Importa o componente de título do painel
+import '../styles/dashboard.css'; // Importa o arquivo de estilo CSS específico para este componente
 
+// Componente para a página do painel de controle (dashboard)
 export function Dashboard() {
-    //Estado inicial do formulário
+    // Estado inicial do formulário para cadastrar produtos
     const initilForm = {
-        nome: "",
-        preco: "",
-        tamanhos: [""],
-        imgModelo: "",
-        imgsProd: [""]
+        nome: "", // Nome do produto
+        preco: "", // Preço do produto
+        tamanhos: [""], // Tamanhos disponíveis do produto
+        imgModelo: "", // URL da imagem modelo do produto
+        imgsProd: [""] // URLs das imagens do produto
     };
 
-    const [form, setForm] = useState(initilForm);
+    const [form, setForm] = useState(initilForm); // Estado para armazenar o formulário
 
-    //Função para atualizar os tamanhos no estado do formulário
+    // Função para atualizar os tamanhos no estado do formulário
     const handleTamanhoChange = (index, event) => {
-        const newTamanhos = [...form.tamanhos];
-        newTamanhos[index] = event.target.value;
+        const newTamanhos = [...form.tamanhos]; // Cria uma cópia do array de tamanhos
+        newTamanhos[index] = event.target.value; // Atualiza o tamanho na posição especificada
         setForm({
             ...form,
             tamanhos: newTamanhos
         });
     };
 
-    //Função para adicionar um novo campo de tamanho ao estado do formulário
+    // Função para adicionar um novo campo de tamanho ao estado do formulário
     const handleAddTamanho = () => {
         setForm(prevForm => ({
             ...prevForm,
@@ -33,17 +35,17 @@ export function Dashboard() {
         }));
     };
 
-    //Função para atualizar as imagens do produto no estado do formulário
+    // Função para atualizar as imagens do produto no estado do formulário
     const handleImgsChange = (index, event) => {
-        const newImgs = [...form.imgsProd];
-        newImgs[index] = event.target.value;
+        const newImgs = [...form.imgsProd]; // Cria uma cópia do array de imagens do produto
+        newImgs[index] = event.target.value; // Atualiza a imagem na posição especificada
         setForm({
             ...form,
             imgsProd: newImgs
         });
     }
 
-    //Função para adionar um novo campo de imagens do produto no estado do formulário
+    // Função para adicionar um novo campo de imagens do produto ao estado do formulário
     const handleAddImgs = () => {
         setForm(prevForm => ({
             ...prevForm,
@@ -51,11 +53,11 @@ export function Dashboard() {
         }));
     }
 
-    // Função para lidar com o envio do formulário
+    // Função para lidar com o envio do formulário de cadastro de produtos
     const handleSubmit = (event) => {
-        event.preventDefault();
+        event.preventDefault(); // Previne o comportamento padrão do formulário
 
-        const formGeneral = {
+        const formGeneral = { // Constrói um objeto com os dados do formulário
             nome: form.nome,
             preco: form.preco,
             tamanhos: form.tamanhos,
@@ -63,49 +65,51 @@ export function Dashboard() {
             imgsProd: form.imgsProd
         };
 
-        const requestOptions = {
+        const requestOptions = { // Opções para a requisição POST
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(formGeneral)
+            body: JSON.stringify(formGeneral) // Converte o objeto para JSON
         }
 
-        fetch('http://localhost:3001/products', requestOptions)
-            .then(response => response.json())
-            .then((data) => setForm(data))
+        fetch('http://localhost:3001/products', requestOptions) // Envia a requisição POST para cadastrar o produto
+            .then(response => response.json()) // Converte a resposta em formato JSON
+            .then((data) => setForm(data)) // Atualiza o estado do formulário com os dados do produto cadastrado
             .catch(error => {
-                console.error('Erro ao enviar o formulário:', error);
-                alert("Erro ao enviar o formulário. Tente novamente mais tarde.");
+                console.error('Erro ao enviar o formulário:', error); // Trata erros de envio do formulário
+                alert("Erro ao enviar o formulário. Tente novamente mais tarde."); // Exibe uma mensagem de erro
             });
-        //Limpando os campos do formulário
+        
+        // Limpa os campos do formulário após o envio bem-sucedido
         setForm({...initilForm })
 
-        console.log(form)
+        console.log(form); // Exibe o formulário no console (para fins de depuração)
     };
 
+    // Retorna a estrutura do componente da página do painel de controle
     return (
         <>
             <main className="main-dashboard">
-                <MenuDashboard />
-
+                <MenuDashboard /> {/* Componente do menu do painel */}
                 <div className="content">
-                    <TitleDash title='Cadastrar Produto' />
-                    <form action="" onSubmit={handleSubmit}>
+                    <TitleDash title='Cadastrar Produto' /> {/* Componente do título da seção */}
+                    <form action="" onSubmit={handleSubmit}> {/* Evento onSubmit para lidar com o envio do formulário */}
                         <div className="form-control double">
                             <div className="only big">
-                                <label htmlFor="nome">Nome</label>
+                                <label htmlFor="nome">Nome</label> {/* Rótulo do campo de nome do produto */}
                                 <input
                                     type='text'
                                     id='nome'
                                     name='nome'
                                     value={form.nome}
+                                    // Função para lidar com a mudança de valor nos campos de input do formulário
                                     onChange={(event) => setForm({ ...form, nome: event.target.value })}
                                     required
                                 />
                             </div>
                             <div className="only small">
-                                <label htmlFor="preco">Preço</label>
+                                <label htmlFor="preco">Preço</label> {/* Rótulo do campo de preço do produto */}
                                 <input
                                     type='price'
                                     id='preco'
@@ -120,7 +124,7 @@ export function Dashboard() {
                         {/* Campo de tamanho fixo inicial */}
                         <div className="form-control double-add">
                             <div className="taman-component">
-                                <label htmlFor={`tamanho-0`}>Tamanho</label>
+                                <label htmlFor={`tamanho-0`}>Tamanho</label> {/* Rótulo do campo de tamanho */}
                                 <input
                                     type='text'
                                     id={`tamanho-0`}
@@ -170,7 +174,7 @@ export function Dashboard() {
                         ))}
 
                         <div className="form-control">
-                            <label htmlFor="imgModelo">Imagem Modelo</label>
+                            <label htmlFor="imgModelo">Imagem Modelo</label> {/* Rótulo do campo de imagem modelo do produto */}
                             <input
                                 type='url'
                                 id='imgModelo'
@@ -184,7 +188,7 @@ export function Dashboard() {
                         {/* Campos de imagens fixa inicial */}
                         <div className="form-control double-add">
                             <div className="only first">
-                                <label htmlFor={`imgProd-0`}>Img Prod</label>
+                                <label htmlFor={`imgProd-0`}>Img Prod</label> {/* Rótulo do campo de imagens do produto */}
                                 <input
                                     type='url'
                                     id={`imgProd-0`}
@@ -205,11 +209,11 @@ export function Dashboard() {
                                     required
                                 />
                             </div>
-                            {/* Botão para adicionar mais campos de imgProd */}
+                            {/* Botão para adicionar mais campos de imagens do produto */}
                             <button type="button" className="btn-add" onClick={handleAddImgs}>+</button>
                         </div>
 
-                        {/* Adiocionando campos adicionais de imgsProd de forma dinâmica */}
+                        {/* Adicionando campos adicionais de imagens do produto de forma dinâmica */}
                         {form.imgsProd.slice(2).map((imgProd, index) => (
                             <div className="form-control double-add" key={index + 2}>
                                 <div className="only first">
@@ -225,7 +229,7 @@ export function Dashboard() {
                             </div>
                         ))}
 
-                        <button className="btn-main" type="submit" >Cadastrar</button>
+                        <button className="btn-main" type="submit" >Cadastrar</button> {/* Botão para enviar o formulário */}
                     </form>
                 </div>
             </main>
